@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <title>Exercicio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/unsemantic-grid-responsive.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <header>
+    </header>
+
+    <section class="max-width">
+        <div class="grid-100">
+            <h1>Contato</h1>
+            <hr>
+        </div>
+    
+        <form action="contato.php" id="form-contato" method="POST">
+
+            <div class="grid-50 mobile-grid-100">
+                <label for="txtNome">Nome</label>
+                <input type="text" name="txtNome" id="txtNome" class="form">
+            </div>
+
+            <div class="grid-50 mobile-grid-100">
+                <label for="txtEmail">E-mail</label>
+                <input type="text" name="txtEmail" id="txtEmail" class="form">
+            </div>
+
+            <div class="grid-50 mobile-grid-100">
+                <label for="txtTelefone">Telefone</label>
+                <input type="text" name="txtTelefone" placeholder="(99)999999999" id="txtTelefone" class="form">
+            </div>
+
+            <div class="grid-50 mobile-grid-100">
+                <label for="slcAssunto">Assunto</label>
+                <select name="slcAssunto" id="slcAssunto" class="form">
+                    <option value=1 selected>Comercial</option>
+                    <option value=2>Dúvidas</option>
+                    <option value=3>Parceria</option>
+                    <option value=4>Outros</option>
+
+                </select>
+
+            </div>
+
+            <div class="grid-100 mobile-grid-100">
+                <label for="txtMensagem">Mensagem</label>
+                <textarea name="txtMensagem" id="txtMensagem" class="form" rows="6"></textarea>
+                
+            </div>
+
+            <div class="grid-80 hide-on-mobile"><span>&nbsp;</span></div>
+            
+            <div class="grid-20 mobile-grid-100 text-right">
+                <input type="submit" name="btnEnviar" id="btnEnviar" class="btnEnviar">
+            </div>
+            <div class="clear"></div>
+            
+        </form>
+
+    </section>
+
+    <script src="js/script.js"></script>
+
+
+</body>
+
+</html>
