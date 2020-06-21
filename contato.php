@@ -1,3 +1,5 @@
+
+
 <?php
 
 $valido = false;
@@ -13,75 +15,112 @@ $valido = false;
 
 function validar($nome, $email, $telefone, $assunto, $mensagem){
 
-    
-
-
-    if(strlen($mensagem) == 0){
+    if(strlen($mensagem) == 0){ 
         return false;
     }
+    
     return true;
 }
 
-
 ?>
 
-
 <!DOCTYPE html>
-<html lang="pt-br">
+    <html lang="pt-br">
 
-<head>
-    <title>Pagina de confirmação</title>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="css/style.css" rel="stylesheet">
-    <link href="css/unsemantic-grid-responsive.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
-</head>
+    <head>
+        <title>Pagina de confirmação</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <link href="css/unsemantic-grid-responsive.css" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap" rel="stylesheet">
+    </head>
 
-<body>
 
 <?php if($valido) : ?>
 
-    <section class="max-width">    
+   
+    <body>
+
+    <section class="max-width">
         <div>
-            <h1>Contato</h1>
+            <h1>Contato Enviado</h1>
+            <hr>
         </div>
 
-        <div>
-            <h3> Olá <?php echo $nome; ?> recebemos a sua mensagem em breve, 
-                um de nossos atendentes irá responde-lo(a). </h3>
-        </div>
+        <div class="modeloResp">
+            <div >
+                <h3> Olá <?php echo $nome; ?> recebemos a sua mensagem em breve, 
+                    um de nossos atendentes irá responde-lo(a). </h3>
+            </div>
 
-        <div>
-            <p>
-                <strong>Nome:</strong> <?php echo $nome; ?> <br>
-                <strong>E-mail:</strong> <?php echo $email; ?> <br>
-                <strong>Telefone:</strong> <?php echo $telefone; ?> <br>
-                <strong>Assunto:</strong> <?php echo $assunto; ?> <br>
-                <strong>Mensagem:</strong> <?php echo $mensagem; ?> 
-            </p>
+            <div class="grid-100 mobile-grid-100">
+                <p>
+                    <strong>Nome:</strong> <?php echo $nome; ?> <br>
+                    <strong>E-mail:</strong> <?php echo $email; ?> <br>
+                    <strong>Telefone:</strong> <?php echo $telefone; ?> <br>
+                    <strong>Assunto:</strong>
+                        <?php switch ($assunto) {
+                            case 1: 
+                                echo "Comercial";
+                                break;
+                            case 2: 
+                                echo "Dúvidas";
+                                break;
+                            case 3:
+                                echo "Parceria";
+                                break;
+                            case 4:
+                                echo "Outros";
+                                break;
+                            }
+                        ?>                    
+                        <br>
+                    <strong>Mensagem:</strong> <?php echo $mensagem; ?> 
+
+                    <div class="grid-90">&nbsp;</div>
+                    <div class="grid-10" >
+                        <a class="btnEnviar" href="index.html" >Voltar</a>
+                    </div>
+
+                </p>
+
+                
+            </div>
+      
         </div>
     </section>
 
     
 
 <?php else : ?>
+
     <section class="max-width">
-        
-            <h1>Contato</h1>
-        </div>
         <div>
-            <p>
-                Não foi possível receber seus dados. Tente mais tarde!<br>
-                Verifique se a mensagem não esta vazia!
-            </p>
-            <br>
-        </div>
-        <div >
-            <a  href="index.html" >Voltar</a>
+            <h1>Mensagem</h1>
+            <hr>
         </div>
 
-    </section>
+        <div ">
+            <div class="modeloResp borderRed">
+                <h1>Falha!</h1>
+                <p>
+                    Não foi possível receber seus dados.
+                    Tente mais tarde!<br>
+                    Obrigado!<br>
+                    <br>
+                    <div class="grid-90">&nbsp;</div>
+                    <div class="grid-10" >
+                        <a class="btnEnviar" href="index.html" >Voltar</a>
+                    </div>
+                </p>
+                <br>
+             </div>
+        </div>
+    </<section>
+        
+     
+
     
 <?php endif; ?>
 

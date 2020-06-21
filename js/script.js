@@ -34,8 +34,8 @@ function validar(obj) {
         setBorder(obj.nome[1], "form");
     }
 
-    if((obj.email[0].length < 3 || obj.email[0].length > 50) || obj.email[0].indexOf("@") == -1 || obj.email[0].indexOf(".") == -1  ) {
-        
+    //if((obj.email[0].length < 3 || obj.email[0].length > 50) || obj.email[0].indexOf("@") == -1 || obj.email[0].indexOf(".") == -1  ) {
+    if((obj.email[0].length < 3 || obj.email[0].length > 50) || !/[^1]*([a-z0-9.]+?\-?[a-z0-9]+)\@[^1]*([a-z0-9]+\.[a-z0-9]+)/.test(obj.email[0])){
         erros.push("Email inválido - Mín 3 e Máx. 100 caracteres com '@' e '.' .  \r\n\r\n *");
         setBorder(obj.email[1], "form invalido");
     } else {
@@ -43,9 +43,9 @@ function validar(obj) {
     }
 
     
-    if((obj.telefone[0].length < 8 || obj.telefone[0].length > 13) || (!/\([0-9]{2}\)[0-9]{8}/.test(obj.telefone[0]))) {
+    if((obj.telefone[0].length < 12 || obj.telefone[0].length > 15) || (!/\([0-9]{2}\)? ?[0-9]{3,4}?\.?[0-9]{4,6}/.test(obj.telefone[0]))) {
         
-            erros.push("Telefone inválido - Mín 8 e Máx. 9 digitos após DDD com uso 2 digitos entre os '( )'. \r\n\r\n ");
+            erros.push("Telefone inválido - Mín 12 e Máx. 14  caracteres, DDD com uso 2 digitos entre os '( )' c/s espaço. \r\n\r\n ");
             setBorder(obj.telefone[1], "form invalido");
         
     } else {
@@ -55,11 +55,21 @@ function validar(obj) {
     if(obj.assunto[0] < 1 || obj.assunto[0] > 4) {
         
         erros.push("Assunto - escolha entre os 4 tipos. \r\n\r\n ");
-        document.getElementById("slcAssunto")
+        document.getElementById("slcAssunto");
         setBorder(obj.assunto[1], "form invalido");
     } else {
         setBorder(obj.assunto[1], "form");
     }
+
+
+    if(obj.mensagem[0].length <= 0) {
+        erros.push("Mensagem - consta em branco. \r\n\r\n ");
+        document.getElementById("txtMensagem");
+        setBorder(obj.mensagem[1], "form invalido");
+    } else {
+        setBorder(obj.mensagem[1], "form");
+    }
+
 
     if(erros.length>0) {
         alert(erros.toString());

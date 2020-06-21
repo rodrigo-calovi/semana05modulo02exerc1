@@ -27,7 +27,9 @@ section {
 }
 
 h1 {
+    margin-top: 30px;
     color: rgb(0, 0, 0);
+    
     
 }
 
@@ -67,6 +69,7 @@ label{
     background-color: rgb(111, 111, 192);
     transition: .5s;
     color: black;
+    text-decoration: none;
     
 }
 
@@ -76,6 +79,42 @@ label{
 
 .invalido {
     box-sizing: border-box;
-    border: 1px solid rgb(255, 0, 0);
+    border: 3px solid rgb(255, 0, 0);
    
+}
+
+.modeloResp {   
+    box-sizing: border-box; 
+    border: 1px solid rgb(14, 14, 14) ;
+    padding: 30px;
+    line-height: 50px;
+}
+
+hr {
+    margin-bottom: 30px;
+}
+
+.modeloResp .btnEnviar {
+    color: white;
+    background-color: rgb(72, 72, 253);
+    padding: 10px 25px 10px 25px;
+    text-decoration: none;
+    border-radius: 20px;
+    
+}
+
+.modeloResp .btnEnviar:hover {
+    background-color: rgb(155, 155, 202);
+    transition: .5s;
+    
+}
+
+.modeloResp .btnEnviar:active {
+    background-color: rgb(72, 72, 253);
+    
+    
+}
+
+.borderRed {
+    border: 3px solid red;
 }
